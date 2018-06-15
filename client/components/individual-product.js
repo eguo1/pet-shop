@@ -39,6 +39,7 @@ class IndividualProduct extends Component {
             as={Link}
             to={`/products/${product.id}`}
             style={{ margin: '1rem 0 .5rem 0' }}
+            name='link-to-product-details'
           >
             {product.name}
           </Card.Header>
@@ -57,11 +58,13 @@ class IndividualProduct extends Component {
             as={Link}
             content='Edit'
             to={`/products/${product.id}/edit`}
+            name='admin-edit-product-from-home'
           />
           <Button
             content="Add to Cart"
             onClick={this.handleAdd}
             style={{ float: 'right' }}
+            name='add-product-to-cart-from-home'
           />
           </div>
         </Card.Content>

@@ -22,7 +22,7 @@ class Navbar extends Component {
       <Menu>
         <Menu.Item
           as={Link}
-          name="home"
+          name="nav-to-home"
           to="/"
           active={activeItem === 'home'}
           content="Pet Shop"
@@ -31,7 +31,7 @@ class Navbar extends Component {
           (this.props.user.isAdmin) ?
             <Menu.Item
               as={Link}
-              name="newproduct"
+              name="nav-to-newproduct"
               to="/newproduct"
               active={activeItem === 'newproduct'}
               content="New Product"
@@ -42,7 +42,7 @@ class Navbar extends Component {
             isLoggedIn ? null :
               <Menu.Item
                 as={Link}
-                name="login"
+                name="nav-to-login"
                 to="/login"
                 active={activeItem === 'login'}
                 content="Login"
@@ -58,7 +58,7 @@ class Navbar extends Component {
               />
               : <Menu.Item
                 as={Link}
-                name="signup"
+                name="nav-to-signup"
                 to="/signup"
                 active={activeItem === 'signup'}
                 content="Sign Up"
@@ -68,7 +68,7 @@ class Navbar extends Component {
             isLoggedIn && (
               <Menu.Item
                 as={Link}
-                name="profile"
+                name="nav-to-profile"
                 to="/profile"
                 active={activeItem === 'profile'}
                 content="My Profile"
@@ -76,7 +76,7 @@ class Navbar extends Component {
             )}
           <Menu.Item
             as={Link}
-            name="cart"
+            name="nav-to-cart"
             to="/order"
             active={activeItem === 'home'}
             content={`Cart (${this.props.itemNum})`}

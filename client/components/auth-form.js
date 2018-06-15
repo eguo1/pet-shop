@@ -52,11 +52,13 @@ const AuthForm = (props) => {
                 <Form.Field
                   control={Button}
                   content={displayName}
+                  name={`${displayName.toLowerCase()}`}
                 />
                 <Button
                   content={`${displayName} with Google`}
                   as="a"
                   href="/auth/google"
+                  name={`google-${displayName.toLowerCase()}`}
                 />
               </Form.Group>
               {error && error.response && <div> {error.response.data} </div>}

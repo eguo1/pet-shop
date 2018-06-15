@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Route, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import axios from 'axios'
 import { StripeProvider } from 'react-stripe-elements'
 import NewProductForm from './components/new-product-form'
 import EditProductForm from './components/edit-product-form'
@@ -54,6 +55,29 @@ class Routes extends Component {
           localStorage.setItem('orderId', this.props.orderId)
         }
       })
+  }
+
+  componentDidMount () {
+    window.addEventListener('click', this.globalClickListener)
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('click', this.globalClickListener)
+  }
+
+  globalClickListener = (evt) => {
+    if (evt.target.name !== '' && evt.target.name !== undefined) {
+      console.log(evt)
+      const clientEvent = {
+        type: 'click',
+        page: evt.target.baseURI,
+        target: evt.target.name,
+        time: Date.now(),
+        userAgent: navigator.userAgent,
+        userId: this.props.user.id
+      }
+      axios.post('https://yet-another-analytics-platform.herokuapp.com/api/events', clientEvent)
+    }
   }
 
   render() {
