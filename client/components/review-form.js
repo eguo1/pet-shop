@@ -6,9 +6,9 @@ import ReactStars from 'react-stars'
 import history from '../history'
 import { Form, TextArea, Button } from 'semantic-ui-react'
 
-import io from 'socket.io-client'
-const socket = io(window.location.origin)
-import {socketEmit} from '../socket'
+// import io from 'socket.io-client'
+// const socket = io(window.location.origin)
+// import {socketEmit} from '../socket'
 
 class ReviewForm extends Component {
   constructor(props) {
@@ -55,7 +55,7 @@ class ReviewForm extends Component {
       stars: 0,
       reviewId: 0
     })
-    socketEmit('SUBMIT_REVIEW', {userId: this.props.user.id}, socket)
+    // socketEmit('SUBMIT_REVIEW', {userId: this.props.user.id}, socket)
   }
 
   invokeSubmit = async () => {

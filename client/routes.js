@@ -17,9 +17,9 @@ import { getOrderServer, getLocalOrderServer, createLocalOrderServer, mergeOrder
 import FilteredProducts from './components/filtered-products'
 import EditReviewForm from './components/edit-review-form'
 
-import io from 'socket.io-client'
-const socket = io(window.location.origin)
-import {socketEmit} from './socket'
+// import io from 'socket.io-client'
+// const socket = io(window.location.origin)
+// import {socketEmit} from './socket'
 
 import UserHome from './components/user-home'
 import UserList from './components/user-list'
@@ -49,7 +49,7 @@ class Routes extends Component {
       })
       .then(() => {
         // console.log(socketEmit)
-        socketEmit('SOCKET_CONNECTION', {userId: this.props.user.id}, socket)
+        // socketEmit('SOCKET_CONNECTION', {userId: this.props.user.id}, socket)
         if (!this.props.isLoggedIn) {
           localStorage.setItem('orderId', this.props.orderId)
         }

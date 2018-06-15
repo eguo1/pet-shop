@@ -8,14 +8,14 @@ import { getOrderServer, updateOrderStatusServer } from '../store/order'
 import { Segment, Header, Divider, Button } from 'semantic-ui-react'
 import axios from 'axios'
 
-import io from 'socket.io-client'
-const socket = io(window.location.origin)
-import {socketEmit} from '../socket'
+// import io from 'socket.io-client'
+// const socket = io(window.location.origin)
+// import {socketEmit} from '../socket'
 
 class Order extends Component {
   constructor(props) {
     super(props)
-    socketEmit('ORDER_VIEW', {userId: this.props.user.id}, socket)
+    // socketEmit('ORDER_VIEW', {userId: this.props.user.id}, socket)
   }
 
   handleClick = (evt) => {

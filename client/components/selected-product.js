@@ -10,16 +10,16 @@ import SingleReview from './single-review'
 import NewReviewForm from './new-review-form'
 import { addLineitemServer } from '../store/order';
 
-import io from 'socket.io-client'
-const socket = io(window.location.origin)
-import {socketEmit} from '../socket'
+// import io from 'socket.io-client'
+// const socket = io(window.location.origin)
+// import {socketEmit} from '../socket'
 
 class SelectedProduct extends Component {
   constructor(props) {
     super(props)
     this.props.getSingleProduct(this.props.match.params.productId)
     this.props.getFilteredReviews(this.props.match.params.productId)
-    socketEmit('SELECTED_PRODUCT_VIEW', {userId: this.props.user.id}, socket)
+    // socketEmit('SELECTED_PRODUCT_VIEW', {userId: this.props.user.id}, socket)
   }
 
   handleAdd = async (evt) => {
