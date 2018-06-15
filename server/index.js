@@ -43,19 +43,19 @@ const createApp = () => {
   app.use(passport.initialize())
   app.use(passport.session())
 
-  // auth and api routes
-  app.use('/auth', require('./auth'))
-  app.use('/api', require('./api'))
-
-  // static file-serving middleware
-  app.use(express.static(path.join(__dirname, '..', 'public')))
-
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
   })
+
+  // auth and api routes
+  app.use('/auth', require('./auth'))
+  app.use('/api', require('./api'))
+
+  // static file-serving middleware
+  app.use(express.static(path.join(__dirname, '..', 'public')))
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
   app.use((req, res, next) => {
